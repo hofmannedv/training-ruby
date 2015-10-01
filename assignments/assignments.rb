@@ -31,3 +31,6 @@ puts "colour: #{output}"
 puts "output2: #{output2}"
 puts "output3: #{output3}"
 
+# print a partial string
+partialString = output2[2,4]
+puts "partialString: #{partialString}"
