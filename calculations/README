@@ -1,4 +1,5 @@
 README
 ------
 
+* average.rb: calculate the average for a list of integers
 * min-max.rb: calculate the minimum, and the maximum value for a list of integers
