@@ -64,6 +64,31 @@ class Array
 
 end
 
+class Array2D
+	def initialize(rows, columns)
+		# constructor class to initiate this object
+
+		# set array size, and init the array
+		@rows = rows
+		@columns = columns
+
+		# define array to keep the rows
+		@arrayData = Array.new(rows)
+		
+		# fill each row entry with an array that represents the columns
+		(0...@arrayData.getLength()).each do |currentRow|
+			# define empty row
+			arrayRow = Array.new(columns)
+			
+			# update value in array
+			@arrayData.setElementValue(currentRow, arrayRow)
+		end
+
+		return
+	end
+
+end
+
 # main program
 
 # define basic array of size 3
@@ -77,3 +102,8 @@ array1.print()
 
 # get value: element 1
 puts "value at position 1 is #{array1.getElementValue(1)}"
+
+# define 2d array of size 3x3
+array2 = Array2D.new(3,3)
+#print ("2D array size:", array2.getSize())
+
