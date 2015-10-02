@@ -9,11 +9,18 @@
 class Array
 
 	def initialize(size)
-		"constructor class to initiate this object"
+		# constructor class to initiate this object
 
 		# set array size, and init the array
 		@size = size
 		@data = [nil] * size
+
+		return
+	end
+
+	def getLength()
+		# return the number of items
+		return @size
 	end
 end
 
@@ -21,6 +28,6 @@ end
 
 # define basic array of size 3
 array1 = Array.new(3)
-#print ("array length:", array1.getLength())
+puts "array length: #{array1.getLength()}\n"
 
 
