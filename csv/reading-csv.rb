@@ -11,9 +11,13 @@ require 'csv'
 
 # check the list of commandline arguments
 if ARGV.length < 1
+	# list contains less arguments than required
 	puts "invalid number of parameters: 1 required."
 	puts "call: ruby reading-csv.rb database.txt"
 	puts "Exiting."
+
+	# exit with error code
+	exit(2)
 else
 	# read name of the datafile
 	datafileName = ARGV[0]
@@ -24,9 +28,15 @@ else
 
 	# read the data line by line
 	CSV.foreach(datafileName) do |row|
-		nameEntry, addressEntry, cityEntry, zipEntry, countryEntry = row[0], row[1], row[2], row[3], row[4]
-		# output all the columns as strings
-		puts row.to_s
+		
+		# skip the first line with column titles
+		if lines > 1
+			# assign the columns to single variables in a single step
+			nameEntry, addressEntry, cityEntry, zipEntry, countryEntry = row
+
+			# output name and place, for example
+			printf "Name and place: %s, %s\n", nameEntry, cityEntry
+		end
 
 		# increase the lines counter
 		lines += 1
