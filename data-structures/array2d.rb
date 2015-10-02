@@ -87,6 +87,11 @@ class Array2D
 		return
 	end
 
+	def getSize()
+		# return the size of the 2d array
+		return @rows, @columns
+	end
+
 end
 
 # main program
@@ -105,5 +110,5 @@ puts "value at position 1 is #{array1.getElementValue(1)}"
 
 # define 2d array of size 3x3
 array2 = Array2D.new(3,3)
-#print ("2D array size:", array2.getSize())
+puts "2D array size: #{array2.getSize()}\n"
 
