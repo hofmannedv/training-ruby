@@ -24,6 +24,7 @@ else
 
 	# read the data line by line
 	CSV.foreach(datafileName) do |row|
+		nameEntry, addressEntry, cityEntry, zipEntry, countryEntry = row[0], row[1], row[2], row[3], row[4]
 		# output all the columns as strings
 		puts row.to_s
 
