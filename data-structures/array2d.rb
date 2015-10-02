@@ -34,8 +34,32 @@ class Array
 			@data[position] = value
 			return true
 		else
+			# out of range, so return error
 			return false
 		end
+	end
+
+	def getElementValue(position)
+		# get the element value at position
+
+		# define the range of the array
+		range = 0...getLength()
+
+		# check if the position is in range
+		if range.include?(position)
+			# return the value of the desired element
+			return @data[position]
+		else
+			# return false, otherwise
+			return False
+		end
+	end
+	
+	def print()
+		# output the elements one after the other
+		puts @data.to_s
+		
+		return
 	end
 
 end
@@ -45,7 +69,9 @@ end
 # define basic array of size 3
 array1 = Array.new(3)
 puts "array length: #{array1.getLength()}\n"
+array1.print()
 
 # set values: element 1:5
 array1.setElementValue(1, 5)
+array1.print()
 
