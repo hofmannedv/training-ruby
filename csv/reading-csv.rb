@@ -24,8 +24,8 @@ else
 
 	# read the data line by line
 	CSV.foreach(datafileName) do |row|
-		# output all the columns
-		puts row.inspect
+		# output all the columns as strings
+		puts row.to_s
 
 		# increase the lines counter
 		lines += 1
