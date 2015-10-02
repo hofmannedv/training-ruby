@@ -71,7 +71,9 @@ array1 = Array.new(3)
 puts "array length: #{array1.getLength()}\n"
 array1.print()
 
-# set values: element 1:5
+# set value: element 1:5
 array1.setElementValue(1, 5)
 array1.print()
 
+# get value: element 1
+puts "value at position 1 is #{array1.getElementValue(1)}"
