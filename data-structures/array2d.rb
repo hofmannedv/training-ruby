@@ -7,7 +7,6 @@
 # -----------------------------------------------------------
 
 class Array
-
 	def initialize(size)
 		# constructor class to initiate this object
 
@@ -22,6 +21,23 @@ class Array
 		# return the number of items
 		return @size
 	end
+
+	def setElementValue(position, value)
+		# set the element value at position
+
+		# define the range of the array
+		range = 0...getLength()
+
+		# check if the position is in range
+		if range.include?(position)
+			# update position
+			@data[position] = value
+			return true
+		else
+			return false
+		end
+	end
+
 end
 
 # main program
@@ -30,4 +46,6 @@ end
 array1 = Array.new(3)
 puts "array length: #{array1.getLength()}\n"
 
+# set values: element 1:5
+array1.setElementValue(1, 5)
 
