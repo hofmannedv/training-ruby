@@ -76,7 +76,7 @@ class Array2D
 		@arrayData = Array.new(rows)
 		
 		# fill each row entry with an array that represents the columns
-		(0...@arrayData.getLength()).each do |currentRow|
+		(0...columns).each do |currentRow|
 			# define empty row
 			arrayRow = Array.new(columns)
 			
@@ -92,23 +92,38 @@ class Array2D
 		return @rows, @columns
 	end
 
+	def print()
+		# output the elements one after the other
+
+		# print one row after the other ...
+		(0...@rows).each do |currentRow|
+			# retrieve current row
+			arrayRow = @arrayData.getElementValue(currentRow)
+
+			# output array row
+			arrayRow.print()
+		end
+		
+		return
+	end
+
 end
 
 # main program
 
 # define basic array of size 3
-array1 = Array.new(3)
-puts "array length: #{array1.getLength()}\n"
-array1.print()
+#array1 = Array.new(3)
+#puts "array length: #{array1.getLength()}\n"
+#array1.print()
 
 # set value: element 1:5
-array1.setElementValue(1, 5)
-array1.print()
+#array1.setElementValue(1, 5)
+#array1.print()
 
 # get value: element 1
-puts "value at position 1 is #{array1.getElementValue(1)}"
+#puts "value at position 1 is #{array1.getElementValue(1)}"
 
 # define 2d array of size 3x3
 array2 = Array2D.new(3,3)
 puts "2D array size: #{array2.getSize()}\n"
-
+array2.print()
