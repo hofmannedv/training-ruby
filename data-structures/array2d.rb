@@ -107,23 +107,91 @@ class Array2D
 		return
 	end
 
+	def getElementValue(column, row)
+		# get the element value at array position x,y
+
+		# define the range of the array
+		rangeRow = 0...@rows
+
+		# check if the position is in row range
+		if rangeRow.include?(row)
+			# retrieve row
+			arrayRow = @arrayData.getElementValue(row)
+
+			# check for column
+			rangeColumn = 0...@columns
+
+			# check if the position is in column range
+			if rangeColumn.include?(column)
+				# retrieve value
+				return arrayRow.getElementValue(column)
+			else
+				# return false, otherwise
+				return false
+			end
+
+		else
+			# return false, otherwise
+			return False
+		end
+
+		return
+	end
+
+	def setElementValue(column, row, value)
+		# set the element value at array position x,y
+
+		# define the range of the array
+		rangeRow = 0...@rows
+
+		# check if the position is in row range
+		if rangeRow.include?(row)
+			# retrieve row
+			arrayRow = @arrayData.getElementValue(row)
+
+			# check for column
+			rangeColumn = 0...@columns
+
+			# check if the position is in column range
+			if rangeColumn.include?(column)
+				# update value
+				arrayRow.setElementValue(column, value)
+
+				return true
+			else
+				# return false, otherwise
+				return false
+			end
+
+		else
+			# return false, otherwise
+			return False
+		end
+
+		return
+	end
+
 end
 
 # main program
 
 # define basic array of size 3
-#array1 = Array.new(3)
-#puts "array length: #{array1.getLength()}\n"
-#array1.print()
+array1 = Array.new(3)
+puts "array length: #{array1.getLength()}\n"
+array1.print()
 
 # set value: element 1:5
-#array1.setElementValue(1, 5)
-#array1.print()
+array1.setElementValue(1, 5)
+array1.print()
 
 # get value: element 1
-#puts "value at position 1 is #{array1.getElementValue(1)}"
+puts "value at position 1 is #{array1.getElementValue(1)}"
 
 # define 2d array of size 3x3
 array2 = Array2D.new(3,3)
 puts "2D array size: #{array2.getSize()}\n"
 array2.print()
+puts "updating array ..."
+array2.setElementValue(1,1,5)
+array2.print()
+puts "value at position 1,1 is #{array2.getElementValue(1,1).to_s}"
