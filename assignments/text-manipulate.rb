@@ -42,12 +42,12 @@ class ModifyText
 		# return text with hidden vowels
 
 		# define regular expression
-		pattern = "/[aeiou]/i"
+		pattern = "[aeiou]"
 
 		# define substitution
 		substitution = "*"
 
-		return @text.gsub(pattern, substitution)
+		return @text.gsub(/#{pattern}/i, substitution)
 	end
 
 	def caesarChiffre()
@@ -62,3 +62,26 @@ class ModifyText
 		return @text.tr(pattern, substitution)
 	end
 end
+
+# main program
+
+# create new text object
+message = ModifyText.new("Hello, nice to meet you!")
+
+# output text
+printf "original text:       %s\n", message.getText
+
+# reverse text
+printf "reversed text:       %s\n", message.reverseText
+
+# hide vowels in text
+printf "text without vowels: %s\n", message.hideVowels()
+
+# cipher text
+printf "cipher text:         %s\n", message.caesarChiffre()
+
+# update text
+message.setText("This is new.")
+
+# output new text using to_s
+printf "new text:            %s\n", message
