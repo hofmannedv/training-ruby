@@ -2,4 +2,6 @@ README
 ------
 
 * array2d.rb: demonstrates how to create and use an 2d array
+* array2d-ext.rb: demonstrates how to create and use an 2d array (ext
+  version)
 
