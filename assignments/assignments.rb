@@ -21,8 +21,14 @@ d,e = 2, 3						# set d to 2, and e to 3
 puts "a,b,c: #{a},#{b},#{c}"
 puts "d,e: #{d},#{e}"
 
+a,b = b,a
+merken = a
+a = b
+b = merken
+
 # assignments with calculations
 total = a + b - c + d - e		# simple addition
+remainder = 3 % 2			# remainder = 1
 output = colour * 4				# concatenate a string four times
 output2 = "light" + colour		# concatenate two strings
 output3 = colour + total.to_s	# concatenate a string with converted integer
@@ -33,4 +39,10 @@ puts "output3: #{output3}"
 
 # print a partial string
 partialString = output2[2,4]
+
+message = <<ENDMARKE
+das ist zeile 1
+das ist zeile 2
+ENDMARKE
+
 puts "partialString: #{partialString}"
