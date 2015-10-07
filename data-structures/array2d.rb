@@ -10,9 +10,9 @@ class Array
 	def initialize(size)
 		# constructor class to initiate this object
 
-		# set array size, and init the array
+		# set array size, and init the array with 0
 		@size = size
-		@data = [nil] * size
+		@data = [0] * size
 
 		return
 	end
@@ -51,13 +51,16 @@ class Array
 			return @data[position]
 		else
 			# return false, otherwise
-			return False
+			return false
 		end
 	end
 	
 	def print()
 		# output the elements one after the other
 		puts @data.to_s
+
+		# output as array
+		#printf "#{@data}\n"
 		
 		return
 	end
@@ -87,6 +90,14 @@ class Array2D
 		return
 	end
 
+	def getDeterminante3x3()
+		# return the determinante for 3x3
+
+		determinante3x3 = getElementValue(0,0) * getElementValue(1,1) * getElementValue(2,2) + getElementValue(0,1) * getElementValue(1,2) * getElementValue(2,0) + getElementValue(1,0) * getElementValue(2,1) * getElementValue(0,2) - getElementValue(0,2) * getElementValue(1,1) * getElementValue(2,0) - getElementValue(1,0) * getElementValue(0,1) * getElementValue(2,2) - getElementValue(0,0) * getElementValue(1,2) * getElementValue(2,1)
+
+		return determinante3x3
+	end
+
 	def getSize()
 		# return the size of the 2d array
 		return @rows, @columns
@@ -107,7 +118,7 @@ class Array2D
 		return
 	end
 
-	def getElementValue(column, row)
+	def getElementValue(row, column)
 		# get the element value at array position x,y
 
 		# define the range of the array
@@ -138,7 +149,7 @@ class Array2D
 		return
 	end
 
-	def setElementValue(column, row, value)
+	def setElementValue(row, column, value)
 		# set the element value at array position x,y
 
 		# define the range of the array
@@ -165,7 +176,7 @@ class Array2D
 
 		else
 			# return false, otherwise
-			return False
+			return false
 		end
 
 		return
@@ -173,11 +184,49 @@ class Array2D
 
 end
 
+class Array2Dn
+	def initialize(data)
+		# constructor class to initiate this object
+
+		# define array to keep the rows
+		@arrayData = data
+		
+		return
+	end
+
+	def getDeterminante3x3()
+		# return the determinante for 3x3
+
+		determinante3x3 = getElementValue(0,0) * getElementValue(1,1) * getElementValue(2,2) + getElementValue(0,1) * getElementValue(1,2) * getElementValue(2,0) + getElementValue(1,0) * getElementValue(2,1) * getElementValue(0,2) - getElementValue(0,2) * getElementValue(1,1) * getElementValue(2,0) - getElementValue(1,0) * getElementValue(0,1) * getElementValue(2,2) - getElementValue(0,0) * getElementValue(1,2) * getElementValue(2,1)
+
+		return determinante3x3
+	end
+
+	def getElementValue(row, column)
+		# get the element value at array position x,y
+		return @arrayData[row][column]
+	end
+
+	def setElementValue(row, column, value)
+		# set the element value at array position x,y
+
+		@arrayData[row][column] = value
+
+		return
+	end
+
+	def print()
+		@arrayData.each{ |row| printf "#{row}\n" }
+		return
+	end
+end
+
 # main program
 
 # define basic array of size 3
 array1 = Array.new(3)
 puts "array length: #{array1.getLength()}\n"
+puts "array content:"
 array1.print()
 
 # set value: element 1:5
@@ -195,3 +244,45 @@ puts "updating array ..."
 array2.setElementValue(1,1,5)
 array2.print()
 puts "value at position 1,1 is #{array2.getElementValue(1,1).to_s}"
+
+# define 3x3 matrix
+matrix = Array2D.new(3,3)
+matrix.setElementValue(0,0,2)
+matrix.setElementValue(0,1,3)
+matrix.setElementValue(0,2,1)
+matrix.setElementValue(1,0,5)
+matrix.setElementValue(1,1,-3)
+matrix.setElementValue(1,2,4)
+matrix.setElementValue(2,0,2)
+matrix.setElementValue(2,1,1)
+matrix.setElementValue(2,2,-4)
+matrix.print()
+puts "Determinante: #{matrix.getDeterminante3x3()}"
+
+# define matrix data per row
+dMatrix = [[1,2,3], [4,5,6], [67,10,19]]
+dMatrixRows = dMatrix.length
+dMatrixColumns = dMatrix[0].length
+matrix3x3 = Array2D.new(dMatrixRows, dMatrixColumns)
+rowCounter = 0
+dMatrix.each { |currentRow|
+	puts "row #{rowCounter}: #{currentRow}"
+	columnCounter = 0
+	currentRow.each { |columnValue|
+		puts "column #{columnCounter}: #{columnValue}"
+
+		matrix3x3.setElementValue(rowCounter, columnCounter, columnValue)
+		columnCounter += 1
+	}
+	rowCounter += 1
+}
+printf "#{dMatrix}\n"
+matrix3x3.print()
+puts "Determinante: #{matrix3x3.getDeterminante3x3()}"
+
+matrixN = Array2Dn.new(dMatrix)
+matrixN.print()
+puts "Determinante: #{matrixN.getDeterminante3x3()}"
+#[1 2 3]
+#[4 5 6]
+#[7 8 9]
