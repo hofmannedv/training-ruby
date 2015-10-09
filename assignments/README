@@ -2,4 +2,6 @@ README
 ------
 
 * assignments.rb: demonstrates different kind of assignments
+* license-plate.rb: LicensePlate classe
+* logdatei: license plate log file
 * text-manipulate.rb: demonstrates various techniques to manipulate strings
