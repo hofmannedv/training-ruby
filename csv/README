@@ -3,3 +3,8 @@ README
 
 * reading-csv.rb: reading data from a CSV file
 * database.txt:   example csv database file
+
+* toll-data/logdatei:     logdata, basic format
+* toll-data/logdatei.csv: logdata, csv format with timestamp
+* toll-data/maut.rb:      toll data evaluation class
+* toll-data/autobahn.rb:  toll data example program using the maut class
