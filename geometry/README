@@ -5,4 +5,4 @@ README
 * point3D.rb: a basic Point class derived from Point class
 * line.rb: a generic Line class
 * geo.rb: demonstrate the usage of these classes
-
+* rectangle.rb: a rectangle class
