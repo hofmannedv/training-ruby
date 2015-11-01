@@ -1,0 +1,4 @@
+This is an example file.
+This file contains text for demo purposes.
+
+This is text after an empty line.
