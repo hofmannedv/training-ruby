@@ -6,4 +6,14 @@
 # email frank.hofmann@efho.de
 # -----------------------------------------------------------
 
+# define file name to read
+filename = "example.txt"
 
+# does the file exist?
+if File.exists?(filename)
+	# output confirmation (on STDOUT, implicitly)
+	puts("%s exists" % (filename))
+else
+	# output error message on STDERR
+	STDERR.puts("%s does not exist" % (filename))
+end

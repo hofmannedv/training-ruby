@@ -1,4 +1,6 @@
 README
 ------
 
-* functions.rb: demonstrates how to write a function
+* exception.rb:  demonstrates the usage of exceptions
+* showStderr.rb: demonstrates how to output messages on STDOUT and STDERR
+* example.txt:   example text file used by exception.rb and showStderr.rb
